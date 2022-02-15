@@ -65,7 +65,7 @@ func (c *clientJson) log(format string, level LogLevel, args ...interface{}) {
 	if (level >= c.config.SendLevel) || (level >= c.config.PrintLevel) {
 		c.entries <- &jsonLogEntry{
 			Ts:    time.Now(),
-			Line:  fmt.Sprintf(prefix+format, args...),
+			Line:  fmt.Sprintf(format, args...),
 			level: level,
 		}
 	}
